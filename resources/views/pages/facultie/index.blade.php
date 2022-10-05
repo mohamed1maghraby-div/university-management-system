@@ -7,12 +7,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Starter Page</h1>
+          <h1 class="m-0 text-dark">{{ __('university.faculties') }}</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Starter Page</li>
+            <li class="breadcrumb-item active">{{ __('university.faculties') }}</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -20,69 +20,9 @@
   </div>
   <!-- /.content-header -->
 
-  <section class="content">
+  {{-- <section class="content">
     <div class="container-fluid">
       <div class="row">
-      <div>
-        <button onclick="showform()">anything</button>
-      </div>
-        <div id="queck-hidden-form">
-          <!-- left column -->
-          <div class="col-md-6 offset-3">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form role="form">
-                <div class="card-body">
-                  <div class="form-group">
-                    <h3>Add Facultie
-
-                      <small class="text-muted">
-                        <button type="button" class="close" onclick="closeForm()" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                      </button>
-                      </small>
-                    </h3>
-                    
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-            </div>
-            <!-- /.card -->
-          </div>
-      </div>
-
       <div class="col-md-12">
         <div class="card card-primary card-outline">
           <div class="card-header">
@@ -96,11 +36,67 @@
           </div>
         </div>
       </div>
-
       </div>
     </div>
-  </section>
+  </section> --}}
 
+  <!-- /.row -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary card-outline">
+          <div class="card-header">
+            <h3 class="card-title">Title</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div>
+              <button class="btn bg-gradient-info btn-flat" onclick="showform()">{{ __('university.add_fac') }}</button>
+            </div>
+              <div id="queck-hidden-form">
+                <!-- left column -->
+                <div class="col-md-6 offset-3">
+                  <!-- general form elements -->
+                  <div class="card card-primary">
+                    
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    {!! Form::open(['route' => 'facultie.store', 'method' => 'post', 'role' => 'form']) !!}
+                      @include('pages.facultie.fields')
+                    {!! Form::close() !!}
+  
+                  </div>
+                  <!-- /.card -->
+                </div>
+            </div>
+  
+  
+  
+  
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+  
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- /.table -->
+          @include('pages.facultie.table')
+          <!-- /.end Table -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
 </div>
 <!-- /.content-wrapper -->
 
@@ -119,6 +115,12 @@
   }
   function closeForm(){
     document.getElementById("queck-hidden-form").classList.remove("fly-form");
+    @if($faculties)
+      @foreach ($faculties as $facultie)
+        document.getElementById("{{ $facultie->id ? 'edit'.$facultie->id : '' }}").classList.remove("fly-form");
+      @endforeach 
+    @endif
   }
+  
 </script>
 @endsection

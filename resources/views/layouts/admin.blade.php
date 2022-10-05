@@ -22,14 +22,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('adminDashboard/css/bootstrap_rtl-v4.2.1/custom_rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('adminDashboard/css/mycustomstyle.css') }}">
   @endif
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="{{ asset('adminDashboard/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
 
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   @yield('style')
+  @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
       @include('partial.header')
       @include('partial.sidebar')
+      @include('partial.flash')
       @yield('content')
+      <button type="button" class="btn btn-danger swalDefaultError">
+        Launch Error Toast
+      </button>
       @include('partial.footer')
   </div>
 
@@ -39,5 +50,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="{{ asset('adminDashboard/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <!-- AdminLTE App -->
   <script src="{{ asset('adminDashboard/dist/js/adminlte.min.js') }}"></script>
+  <!-- SweetAlert2 -->
+<script src="{{ asset('adminDashboard/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+<!-- Toastr -->
+<script src="../../plugins/toastr/toastr.min.js"></script>
+
+@yield('script')
+
+  @livewireScripts
 </body>
 </html>

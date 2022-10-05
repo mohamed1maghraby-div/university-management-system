@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FacultieController;
+use App\Http\Livewire\Admin\University\ShowUniversity;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
