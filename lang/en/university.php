@@ -7,4 +7,7 @@ return [
     'show_fac' => 'Show Faculties',
     'classroom' => 'Classroom',
     'add_classroom' => 'Add Classroom',
+    'create' => 'Create',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
 ];

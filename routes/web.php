@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FacultieController;
+use App\Http\Controllers\Admin\ClassRoomController;
 use App\Http\Livewire\Admin\University\ShowUniversity;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -28,5 +29,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
         })->name('dashboard');
 
         Route::resource('facultie', FacultieController::class);
+        Route::resource('classroom', ClassRoomController::class);
     });
 });

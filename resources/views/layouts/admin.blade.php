@@ -38,9 +38,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
       @include('partial.sidebar')
       @include('partial.flash')
       @yield('content')
-      <button type="button" class="btn btn-danger swalDefaultError">
-        Launch Error Toast
-      </button>
       @include('partial.footer')
   </div>
 

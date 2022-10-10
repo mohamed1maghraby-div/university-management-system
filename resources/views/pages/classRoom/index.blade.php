@@ -70,7 +70,7 @@
                 <div class="modal-body">
                   <!-- form start -->
                   {!! Form::open(['route' => 'facultie.store', 'method' => 'post', 'role' => 'form']) !!}
-                    @include('pages.facultie.fields')
+                    @include('pages.classRoom.fields')
                 </div>
                 <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -85,7 +85,7 @@
           </div>
       <!-- /.modal -->
           <!-- /.table -->
-          @include('pages.facultie.table')
+          @include('pages.classRoom.table')
           <!-- /.end Table -->
           <div class="card-footer">
             Footer
