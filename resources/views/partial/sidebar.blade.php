@@ -34,15 +34,21 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{ route('facultie.create') }}" class="nav-link active">
+              <a href="{{ route('facultie.index') }}" class="nav-link {{ request()->routeIs('facultie.index') ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
-                <p>{{ __('university.add_fac') }}</p>
+                <p>{{ __('university.faculties') }}</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ route('facultie.index') }}" class="nav-link">
+              <a href="{{ route('classroom.index') }}" class="nav-link {{ request()->routeIs('classroom.index') ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
-                <p>{{ __('university.show_fac') }}</p>
+                <p>{{ __('university.classroom') }}</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('sections.index') }}" class="nav-link {{ request()->routeIs('sections.index') ? 'active' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{ __('university.sections') }}</p>
               </a>
             </li>
           </ul>

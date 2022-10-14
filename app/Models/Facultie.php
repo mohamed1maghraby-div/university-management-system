@@ -25,8 +25,13 @@ class Facultie extends Model
         'updated_at' => 'nullable'
     ];
 
-    public function classrooms(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function classrooms()
     {
-        return $this->hasMany(\App\Models\Classroom::class, 'facultie_id');
+        return $this->hasMany(\App\Models\Classroom::class);
+    }
+
+    public function sections()
+    {
+        return $this->hasMany(\App\Models\Section::class);
     }
 }

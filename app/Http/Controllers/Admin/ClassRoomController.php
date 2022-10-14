@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Flash;
-
+use Laracasts\Flash\Flash;
+use App\Models\Facultie;
 use App\Models\Classroom;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ClassRoomController extends Controller
 {
@@ -19,8 +20,9 @@ class ClassRoomController extends Controller
 
     public function index()
     {
+        $faculties = Facultie::get()->pluck('name', 'id');
         $classRooms = $this->classRoom->paginate(10);
-        return view('pages.classRoom.index', compact('classRooms'));
+        return view('pages.classRoom.index', compact(['classRooms','faculties']));
     }
     public function create()
     {
@@ -30,7 +32,6 @@ class ClassRoomController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate(Classroom::$rules);
-
         Classroom::create($data);
 
         Flash::success('ClassRoom saved successfully.');

@@ -7,39 +7,18 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">{{ __('university.classroom') }}</h1>
+          <h1 class="m-0 text-dark">{{ __('university.sections') }}</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">{{ __('university.classroom') }}</li>
+            <li class="breadcrumb-item active">{{ __('university.sections') }}</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
-
-  {{-- <section class="content">
-    <div class="container-fluid">
-      <div class="row">
-      <div class="col-md-12">
-        <div class="card card-primary card-outline">
-          <div class="card-header">
-            <h5 class="card-title m-0">Featured</h5>
-          </div>
-          <div class="card-body">
-            <h6 class="card-title">Special title treatment</h6>
-
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </section> --}}
-
   <!-- /.row -->
   <div class="container">
     <div class="row">
@@ -55,22 +34,22 @@
           <div class="card-body">
 
           <button type="button" class="btn bg-gradient-info btn-flat" data-toggle="modal" data-target="#modal-lg">
-            {{ __('university.add_classroom') }}
+            {{ __('section.add') }}
           </button>
-
+          <br/><br/>
           <div class="modal fade" id="modal-lg">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title">{{ __('university.add_classroom') }}</h4>
+                  <h4 class="modal-title">{{ __('university.add_fac') }}</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
                   <!-- form start -->
-                  {!! Form::open(['route' => 'classroom.store', 'method' => 'post', 'role' => 'form']) !!}
-                    @include('pages.classRoom.fields')
+                  {!! Form::open(['route' => 'sections.store', 'method' => 'post', 'role' => 'form', 'id'=>'formCreate']) !!}
+                    @include('pages.sections.fields')
                 </div>
                 <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -85,7 +64,7 @@
           </div>
       <!-- /.modal -->
           <!-- /.table -->
-          @include('pages.classRoom.table')
+          @include('pages.sections.table')
           <!-- /.end Table -->
           <div class="card-footer">
             Footer

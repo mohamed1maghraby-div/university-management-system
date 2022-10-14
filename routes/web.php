@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\FacultieController;
 use App\Http\Controllers\Admin\ClassRoomController;
 use App\Http\Livewire\Admin\University\ShowUniversity;
@@ -30,5 +31,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
 
         Route::resource('facultie', FacultieController::class);
         Route::resource('classroom', ClassRoomController::class);
+        Route::resource('sections', SectionController::class);
     });
 });

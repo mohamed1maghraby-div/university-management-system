@@ -23,7 +23,7 @@ class Classroom extends Model
 
     public static $rules = [
         'facultie_id' => 'required|numeric',
-        'name' => 'nullable|string',
+        'name' => 'required|string',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
